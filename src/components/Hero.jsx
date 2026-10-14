@@ -118,12 +118,12 @@ export default function Hero({ onOpenPreview, onOpenCheckout }) {
                 {/* Cover Image Container */}
                 <div 
                   onClick={() => onOpenPreview(book.id)}
-                  className="relative aspect-[3/4] w-full max-w-[260px] mx-auto rounded-xl overflow-hidden bg-slate-950 border border-slate-700/60 shadow-2xl cursor-pointer group-hover:border-emerald-500/60 transition-all"
+                  className="relative aspect-[7/10] w-full max-w-[260px] mx-auto rounded-xl overflow-hidden bg-slate-950 border border-slate-700/60 shadow-2xl cursor-pointer group-hover:border-emerald-500/60 transition-all p-1 flex items-center justify-center"
                 >
                   <img 
                     src={book.cover} 
                     alt={book.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                   

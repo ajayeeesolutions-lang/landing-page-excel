@@ -61,12 +61,12 @@ export default function BookShowcase({ onOpenPreview, onOpenCheckout }) {
                 {/* Cover Image Showcase */}
                 <div 
                   onClick={() => onOpenPreview(book.id)}
-                  className="relative aspect-[3/4] w-full max-w-[280px] mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-700/60 shadow-xl cursor-pointer group-hover:border-emerald-500/50 transition-all mb-6 group/cover"
+                  className="relative aspect-[7/10] w-full max-w-[280px] mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-700/60 shadow-xl cursor-pointer group-hover:border-emerald-500/50 transition-all mb-6 group/cover p-1 flex items-center justify-center"
                 >
                   <img 
                     src={book.cover} 
                     alt={book.title}
-                    className="w-full h-full object-cover group-hover/cover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain rounded-xl group-hover/cover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
 

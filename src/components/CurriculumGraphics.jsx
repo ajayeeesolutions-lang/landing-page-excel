@@ -74,11 +74,11 @@ export default function CurriculumGraphics() {
               </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl bg-slate-950">
+            <div className="rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl bg-slate-950 p-2 flex items-center justify-center">
               <img 
                 src="/lp/e-book_jago_data_dengan_excel_maupun_spreadsheet.png" 
                 alt="E-Book Jago Data" 
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto max-h-[460px] object-contain rounded-xl hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
             </div>
@@ -95,11 +95,11 @@ export default function CurriculumGraphics() {
                 className="bg-slate-900/70 rounded-2xl border border-slate-800 hover:border-emerald-500/40 p-5 flex flex-col justify-between transition-all group overflow-hidden"
               >
                 <div>
-                  <div className="rounded-xl overflow-hidden border border-slate-700/60 mb-4 bg-slate-950 aspect-[16/10]">
+                  <div className="rounded-xl overflow-hidden border border-slate-700/60 mb-4 bg-slate-950 aspect-square p-2 flex items-center justify-center">
                     <img 
                       src={item.img} 
                       alt={item.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
