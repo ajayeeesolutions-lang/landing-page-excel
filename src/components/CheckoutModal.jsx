@@ -64,33 +64,34 @@ export default function CheckoutModal({ isOpen, onClose, selectedItem }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto animate-fadeIn">
-      <div className="relative w-full max-w-xl bg-slate-900 border border-slate-700/80 rounded-3xl shadow-2xl shadow-black/80 p-6 sm:p-8 overflow-hidden text-slate-100">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/85 backdrop-blur-md p-3 sm:p-6 flex items-start sm:items-center justify-center animate-fadeIn">
+      <div className="relative w-full max-w-xl bg-slate-900 border border-slate-700/80 rounded-2xl sm:rounded-3xl shadow-2xl shadow-black/80 p-5 sm:p-7 text-slate-100 my-auto max-h-[92vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition-colors"
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition-colors z-10"
+          title="Tutup (Esc)"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shadow-inner">
-            <ShoppingBag className="w-6 h-6" />
+        <div className="flex items-center gap-3 mb-4 pr-8">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shadow-inner flex-shrink-0">
+            <ShoppingBag className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-xl font-extrabold text-white">Form Pemesanan E-Book Excel</h3>
+            <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">Form Pemesanan E-Book Excel</h3>
             <p className="text-xs text-slate-400">File digital langsung dikirimkan ke WhatsApp kamu</p>
           </div>
         </div>
 
-        <form onSubmit={handleProceedToWhatsApp} className="space-y-5">
+        <form onSubmit={handleProceedToWhatsApp} className="space-y-4">
           
           {/* Product Picker */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+            <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-2">
               Pilih E-Book yang Ingin Dipesan:
             </label>
             <div className="space-y-2">
@@ -101,34 +102,34 @@ export default function CheckoutModal({ isOpen, onClose, selectedItem }) {
                   <label
                     key={p.id}
                     onClick={() => setSelectedProduct(p.id)}
-                    className={`block p-3.5 rounded-xl border cursor-pointer transition-all ${
+                    className={`block p-2.5 sm:p-3 rounded-xl border cursor-pointer transition-all ${
                       isSelected 
                         ? 'bg-emerald-950/40 border-emerald-500 text-white ring-1 ring-emerald-500/50' 
                         : 'bg-slate-950/70 border-slate-800 hover:border-slate-700 text-slate-300'
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2.5 min-w-0">
                         <input
                           type="radio"
                           name="product"
                           checked={isSelected}
                           onChange={() => setSelectedProduct(p.id)}
-                          className="accent-emerald-500 w-4 h-4"
+                          className="accent-emerald-500 w-4 h-4 flex-shrink-0"
                         />
-                        <div>
-                          <div className="text-sm font-bold flex items-center gap-2">
-                            <span>{p.title}</span>
+                        <div className="min-w-0">
+                          <div className="text-xs sm:text-sm font-bold flex flex-wrap items-center gap-1.5">
+                            <span className="truncate">{p.title}</span>
                             {isBundle && (
-                              <span className="text-[10px] bg-emerald-500 text-slate-950 px-1.5 py-0.2 rounded font-black">
+                              <span className="text-[9px] bg-emerald-500 text-slate-950 px-1.5 py-0.2 rounded font-black whitespace-nowrap">
                                 SUPER HEMAT
                               </span>
                             )}
                           </div>
-                          <span className="text-xs text-slate-400">{p.desc}</span>
+                          <span className="text-[11px] text-slate-400 line-clamp-1">{p.desc}</span>
                         </div>
                       </div>
-                      <span className="text-sm font-extrabold text-emerald-400 flex-shrink-0">
+                      <span className="text-xs sm:text-sm font-extrabold text-emerald-400 flex-shrink-0">
                         Rp {p.price.toLocaleString('id-ID')}
                       </span>
                     </div>
