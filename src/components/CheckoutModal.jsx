@@ -10,8 +10,8 @@ export default function CheckoutModal({ isOpen, onClose, selectedItem }) {
   const [copied, setCopied] = useState(false);
   const [step, setStep] = useState(1); // 1: Form, 2: Payment confirmation
 
-  // Admin WhatsApp Number (bisa disesuaikan pengguna)
-  const ADMIN_WA = '6281234567890';
+  // Admin WhatsApp Number (Nomor Asli)
+  const ADMIN_WA = '628895672935';
 
   useEffect(() => {
     if (selectedItem?.id) {

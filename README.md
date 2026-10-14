@@ -65,7 +65,7 @@ Ikuti instruksi di terminal (pilih yes/default) dan landing page akan langsung a
 Buka file [`src/components/CheckoutModal.jsx`](file:///d:/PROJECT%20TEMPLATE%20JUAL/Landing%20Page%20Excel%20Tutorial%20Rumus/src/components/CheckoutModal.jsx#L13):
 Ubah baris ke-13:
 ```javascript
-const ADMIN_WA = '6281234567890'; // Ganti dengan nomor WhatsApp kamu (awali dengan 62)
+const ADMIN_WA = '628895672935'; // Nomor WhatsApp Admin Asli
 ```
 
 ---
