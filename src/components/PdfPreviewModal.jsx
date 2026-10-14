@@ -121,40 +121,42 @@ export default function PdfPreviewModal({ isOpen, onClose, initialBookId = 'exce
           </div>
 
           {/* Zoom controls */}
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 bg-slate-950 px-2 py-1 rounded-lg border border-slate-800">
             <button
-              onClick={() => setZoomLevel(prev => Math.max(0.75, prev - 0.25))}
-              className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800"
-              title="Perkecil"
+              onClick={() => setZoomLevel(prev => Math.max(0.35, Number((prev - 0.15).toFixed(2))))}
+              className="p-1 text-slate-300 hover:text-white rounded hover:bg-slate-800 transition-colors"
+              title="Perkecil (Bisa sampai 35%)"
             >
               <ZoomOut className="w-4 h-4" />
             </button>
-            <span className="font-mono text-slate-400 text-[11px]">{Math.round(zoomLevel * 100)}%</span>
+            <span className="font-mono text-emerald-400 font-bold text-xs min-w-[42px] text-center">
+              {Math.round(zoomLevel * 100)}%
+            </span>
             <button
-              onClick={() => setZoomLevel(prev => Math.min(1.5, prev + 0.25))}
-              className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800"
-              title="Perbesar"
+              onClick={() => setZoomLevel(prev => Math.min(2.5, Number((prev + 0.15).toFixed(2))))}
+              className="p-1 text-slate-300 hover:text-white rounded hover:bg-slate-800 transition-colors"
+              title="Perbesar (Sampai 250%)"
             >
               <ZoomIn className="w-4 h-4" />
             </button>
             <button
               onClick={() => setZoomLevel(1)}
-              className="p-1.5 text-slate-400 hover:text-white rounded hover:bg-slate-800 ml-1"
-              title="Reset Zoom"
+              className="px-2 py-0.5 text-[11px] font-semibold text-slate-300 hover:text-white rounded hover:bg-slate-800 ml-1 border-l border-slate-800"
+              title="Paskan Layar (100%)"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              Reset
             </button>
           </div>
         </div>
 
         {/* Reader Body / Viewer Area */}
-        <div className="relative flex-1 overflow-auto bg-slate-950 p-4 sm:p-6 flex items-center justify-center min-h-[360px] sm:min-h-[500px]">
+        <div className="relative flex-1 overflow-auto bg-slate-950 p-2 sm:p-4 flex flex-col items-center justify-center min-h-[340px] sm:min-h-[480px]">
           
           {/* Navigation Arrow Left */}
           <button
             onClick={handlePrev}
             disabled={currentPageIndex === 0}
-            className={`absolute left-2 sm:left-4 z-20 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white shadow-xl transition-all ${
+            className={`absolute left-2 sm:left-4 z-20 p-2 sm:p-3 rounded-full bg-slate-900/90 border border-slate-700 text-white shadow-xl transition-all ${
               currentPageIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-emerald-500 hover:text-slate-950 hover:scale-110'
             }`}
             title="Halaman Sebelumnya"
@@ -166,7 +168,7 @@ export default function PdfPreviewModal({ isOpen, onClose, initialBookId = 'exce
           <button
             onClick={handleNext}
             disabled={currentPageIndex === pages.length - 1}
-            className={`absolute right-2 sm:right-4 z-20 p-2.5 rounded-full bg-slate-900/80 border border-slate-700 text-white shadow-xl transition-all ${
+            className={`absolute right-2 sm:right-4 z-20 p-2 sm:p-3 rounded-full bg-slate-900/90 border border-slate-700 text-white shadow-xl transition-all ${
               currentPageIndex === pages.length - 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-emerald-500 hover:text-slate-950 hover:scale-110'
             }`}
             title="Halaman Selanjutnya"
@@ -174,64 +176,49 @@ export default function PdfPreviewModal({ isOpen, onClose, initialBookId = 'exce
             <ChevronRight className="w-5 h-5" />
           </button>
 
-          {/* Page Document Container */}
+          {/* Page Document Container - Fits viewport height naturally */}
           <div 
-            className="relative transition-transform duration-200 shadow-2xl rounded-lg overflow-hidden border border-slate-700/70 bg-white"
+            className="relative transition-transform duration-150 shadow-2xl rounded-lg overflow-hidden border border-slate-700/80 bg-white flex items-center justify-center my-auto"
             style={{ 
               transform: `scale(${zoomLevel})`,
               transformOrigin: 'center center',
-              maxWidth: '680px',
-              width: '100%'
+              maxHeight: '58vh',
             }}
           >
             <img 
               src={currentPage.img} 
               alt={currentPage.title}
-              className={`w-full h-auto object-contain select-none transition-all duration-300 ${
+              className={`max-h-[58vh] w-auto h-auto object-contain select-none transition-all duration-300 ${
                 isLocked ? 'blur-[8px] opacity-40 scale-105' : ''
               }`}
             />
 
             {/* LOCKED SCREEN OVERLAY */}
             {isLocked && (
-              <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-10 text-white">
+              <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-4 sm:p-6 text-center z-10 text-white overflow-y-auto">
                 
                 {/* Lock Badge */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-400 text-slate-950 flex items-center justify-center mb-4 shadow-xl shadow-amber-500/30 animate-bounce">
-                  <Lock className="w-8 h-8" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-400 text-slate-950 flex items-center justify-center mb-3 shadow-xl shadow-amber-500/30 animate-bounce flex-shrink-0">
+                  <Lock className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
 
-                <span className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-1">
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 mb-1">
                   Preview Gratis Telah Selesai
                 </span>
                 
-                <h4 className="text-xl sm:text-2xl font-black text-white max-w-md">
+                <h4 className="text-base sm:text-xl font-black text-white max-w-md">
                   Halaman Ini &amp; {currentBook.pages - 3}+ Halaman Lainnya Masih Terkunci!
                 </h4>
 
-                <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-lg leading-relaxed">
-                  Ingin membaca seluruh isi buku <strong>"{currentBook.title}"</strong> ({currentBook.pages} halaman lengkap), 
-                  beserta kunci jawaban dan latihan soal?
+                <p className="text-xs text-slate-300 mt-1.5 max-w-sm leading-relaxed hidden sm:block">
+                  Buka akses penuh <strong>"{currentBook.title}"</strong> ({currentBook.pages} halaman lengkap) beserta file latihan.
                 </p>
 
                 {/* Price Tag Callout */}
-                <div className="mt-4 bg-slate-900 border border-emerald-500/40 px-5 py-2 rounded-xl flex items-center gap-3">
+                <div className="mt-3 bg-slate-900 border border-emerald-500/40 px-4 py-1.5 rounded-xl flex items-center gap-2">
                   <span className="text-xs text-slate-400 line-through">Rp {currentBook.originalPrice.toLocaleString('id-ID')}</span>
-                  <span className="text-2xl font-black text-emerald-400">Rp {currentBook.price.toLocaleString('id-ID')}</span>
-                  <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold uppercase">Sekali Bayar</span>
-                </div>
-
-                {/* Benefits Pill */}
-                <div className="mt-3 flex flex-wrap justify-center gap-2 text-[11px] text-slate-300">
-                  <span className="flex items-center gap-1 bg-slate-900/60 px-2.5 py-1 rounded border border-slate-800">
-                    <CheckCircle className="w-3 h-3 text-emerald-400" /> Full PDF {currentBook.pages} Hal
-                  </span>
-                  <span className="flex items-center gap-1 bg-slate-900/60 px-2.5 py-1 rounded border border-slate-800">
-                    <CheckCircle className="w-3 h-3 text-emerald-400" /> Bebas Print / Cetak
-                  </span>
-                  <span className="flex items-center gap-1 bg-slate-900/60 px-2.5 py-1 rounded border border-slate-800">
-                    <CheckCircle className="w-3 h-3 text-emerald-400" /> Akses Selamanya
-                  </span>
+                  <span className="text-xl sm:text-2xl font-black text-emerald-400">Rp {currentBook.price.toLocaleString('id-ID')}</span>
+                  <span className="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-bold uppercase">Sekali Bayar</span>
                 </div>
 
                 {/* Unlock CTA Button */}
@@ -240,15 +227,11 @@ export default function PdfPreviewModal({ isOpen, onClose, initialBookId = 'exce
                     onClose();
                     onSelectBookToBuy(currentBook);
                   }}
-                  className="mt-5 px-7 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 hover:from-emerald-300 hover:to-teal-200 shadow-xl shadow-emerald-500/40 hover:shadow-emerald-500/60 transition-all transform hover:scale-105 flex items-center gap-2"
+                  className="mt-4 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 hover:from-emerald-300 hover:to-teal-200 shadow-xl shadow-emerald-500/40 transition-all transform hover:scale-105 flex items-center gap-2 flex-shrink-0"
                 >
-                  <Unlock className="w-5 h-5 text-slate-950" />
-                  <span>Buka Semua Halaman Sekarang — Rp 30.000</span>
+                  <Unlock className="w-4 h-4 text-slate-950" />
+                  <span>Buka Semua Halaman (Rp 30.000)</span>
                 </button>
-
-                <p className="text-[11px] text-slate-400 mt-2">
-                  ⚡ File PDF langsung terkirim otomatis setelah pembayaran via QRIS / Bank / E-Wallet.
-                </p>
               </div>
             )}
           </div>
