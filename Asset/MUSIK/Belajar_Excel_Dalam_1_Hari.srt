@@ -1,0 +1,127 @@
+1
+00000:00 --> 00000:00
+Selamat datang di video Belajar Excel Dalam 1 Hari!
+
+2
+00000:00 --> 00000:00
+Dalam waktu singkat, kamu akan menguasai rumus dan trik penting yang paling sering dipakai di dunia kerja!
+
+3
+00000:00 --> 00000:00
+Jadi, siap jadi jago Excel hari ini? Yuk mulai!
+
+4
+00000:00 --> 00000:00
+Excel bukan sekadar software angka.
+
+5
+00000:00 --> 00000:00
+Ini adalah alat wajib untuk analisis data, laporan keuangan, hingga mengelola stok barang.
+
+6
+00000:00 --> 00000:00
+Mau kerja di kantor, freelance, atau bisnis sendiri — kemampuan Excel bikin kerja jadi lebih cepat dan rapi!
+
+7
+00000:00 --> 00000:00
+Pertama-tama, kenali dulu tampilan Excel.
+
+8
+00000:00 --> 00000:00
+Di Excel, kamu bekerja dalam lembar kerja berisi baris, kolom, dan cell.
+
+9
+00000:00 --> 00000:00
+Setiap cell bisa berisi angka, teks, atau rumus.
+
+10
+00000:00 --> 00000:00
+Navigasinya pun mudah — gunakan shortcut CTRL + panah arah untuk berpindah cepat antar data.
+
+11
+00000:00 --> 00000:00
+Ini dia rumus-rumus penting yang akan kamu kuasai hari ini.
+
+12
+00000:00 --> 00000:00
+SUM – Menjumlahkan data: cukup ketik =SUM(A1:A10)
+
+13
+00000:00 --> 00000:00
+AVERAGE – Menghitung rata-rata: gunakan =AVERAGE(B2:B6)
+
+14
+00000:00 --> 00000:00
+IF – Membuat logika kondisi: misalnya =IF(C2>75, "Lulus", "Gagal")
+
+15
+00000:00 --> 00000:01
+VLOOKUP – Mencari data dari tabel lain: contohnya =VLOOKUP(1001, A2:C10, 2, FALSE)
+
+16
+00000:01 --> 00000:01
+LEN dan LEFT – Mengolah teks: =LEN(A2) untuk panjang karakter, =LEFT(A2, 5) untuk ambil 5 karakter pertama.
+
+17
+00000:01 --> 00000:01
+Dengan lima rumus ini saja, kamu sudah bisa menyelesaikan sebagian besar tugas Excel harian di kantor.
+
+18
+00000:01 --> 00000:01
+Mau kerja lebih cepat dan terlihat profesional?
+
+19
+00000:01 --> 00000:01
+Gunakan fitur Conditional Formatting untuk otomatis memberi warna pada data penting — misalnya nilai yang di atas target.
+
+20
+00000:01 --> 00000:01
+Lalu, manfaatkan Pivot Table untuk menganalisis ribuan baris data hanya dalam beberapa klik.
+
+21
+00000:01 --> 00000:01
+Jangan lupa juga fitur filter otomatis, sort, dan freeze panes — semuanya bikin data besar jadi mudah dibaca dan rapi.
+
+22
+00000:01 --> 00000:01
+Latihan langsung adalah cara terbaik untuk belajar.
+
+23
+00000:01 --> 00000:01
+Coba buat laporan penjualan bulanan.
+
+24
+00000:01 --> 00000:01
+Isi dengan total penjualan tiap produk, rata-rata penjualan, dan beri warna otomatis jika angkanya di bawah target.
+
+25
+00000:01 --> 00000:01
+Latihan seperti ini akan membuat kamu cepat terbiasa dengan Excel dan lebih percaya diri.
+
+26
+00000:01 --> 00000:01
+Bisa nggak sih belajar Excel dalam satu hari?
+
+27
+00000:01 --> 00000:01
+Jawabannya: bisa!
+
+28
+00000:01 --> 00000:01
+Dengan fokus belajar selama 1 hari penuh, dan mengikuti materi dari PDF ini, kamu bisa kuasai dasar-dasar Excel yang langsung bisa digunakan.
+
+29
+00000:01 --> 00000:01
+Kuncinya cuma satu: latihan, latihan, dan latihan!
+
+30
+00000:01 --> 00000:02
+Download modulnya, ikuti langkah-langkah di video ini, dan kamu akan jadi jago Excel dalam 1 hari.
+
+31
+00000:02 --> 00000:02
+Kalau video ini bermanfaat, jangan lupa like, subscribe, dan share ke teman-temanmu.
+
+32
+00000:02 --> 00000:02
+Sampai jumpa di video belajar berikutnya!
